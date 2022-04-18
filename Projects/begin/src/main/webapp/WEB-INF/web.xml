@@ -3,5 +3,21 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>com.alex.serverlets.AddServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+
+    <!-- 
+        1. 用户发请求，action=add
+        2. 项目中，web.xml中找到url-pattern为/add的servlet-mapping
+        3. 找到servlet-name为AddServlet的servlet
+        4. 找到servlet-class为com.alex.serverlets.AddServlet的servlet
+        5. 用户发送的是post请求（method=post）, 因此tomcat会执行AddServlet的doPost方法
+     -->
 </web-app>
