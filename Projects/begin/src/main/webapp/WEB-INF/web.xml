@@ -20,4 +20,7 @@
         4. 找到servlet-class为com.alex.serverlets.AddServlet的servlet
         5. 用户发送的是post请求（method=post）, 因此tomcat会执行AddServlet的doPost方法
      -->
+    <welcome-file-list>
+        <welcome-file>add.html</welcome-file>
+    </welcome-file-list>
 </web-app>
