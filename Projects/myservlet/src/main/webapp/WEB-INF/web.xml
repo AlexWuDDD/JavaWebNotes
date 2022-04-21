@@ -17,6 +17,28 @@
     <load-on-startup>2</load-on-startup>
   </servlet>
 
+  <servlet>
+    <servlet-name>Demo3Servlet</servlet-name>
+    <servlet-class>com.alex.servlets.Demo3Servlet</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>Demo4Servlet</servlet-name>
+    <servlet-class>com.alex.servlets.Demo4Servlet</servlet-class>
+    <load-on-startup>4</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>Demo6Servlet</servlet-name>
+    <servlet-class>com.alex.servlets.Demo6Servlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>Demo7Servlet</servlet-name>
+    <servlet-class>com.alex.servlets.Demo7Servlet</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>Demo1Servlet</servlet-name>
     <url-pattern>/demo1</url-pattern>
@@ -25,5 +47,25 @@
   <servlet-mapping>
     <servlet-name>Demo2Servlet</servlet-name>
     <url-pattern>/demo2</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Demo3Servlet</servlet-name>
+    <url-pattern>/demo3</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Demo4Servlet</servlet-name>
+    <url-pattern>/demo4</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Demo6Servlet</servlet-name>
+    <url-pattern>/demo6</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Demo7Servlet</servlet-name>
+    <url-pattern>/demo7</url-pattern>
   </servlet-mapping>
 </web-app>
