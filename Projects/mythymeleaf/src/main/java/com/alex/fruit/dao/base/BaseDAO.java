@@ -54,10 +54,12 @@ public abstract class BaseDAO<T> {
             setParams(psmt,params);
             int count = psmt.executeUpdate() ;
 
-            rs = psmt.getGeneratedKeys();
-            if(rs.next()){
-                return ((Long)rs.getLong(1)).intValue();
-            }
+            if(insertFlag){
+                rs = psmt.getGeneratedKeys();
+                if(rs.next()){
+                    return ((Long)rs.getLong(1)).intValue();
+                }
+            }   
             return count ;
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,7 +89,6 @@ public abstract class BaseDAO<T> {
         PreparedStatement psmt = null ;
         ResultSet rs = null;
         try {
-
             psmt = conn.prepareStatement(sql);
             setParams(psmt,params);
             rs = psmt.executeQuery();
