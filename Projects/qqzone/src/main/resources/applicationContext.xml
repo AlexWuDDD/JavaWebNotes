@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 文档类型定义 什么改写 什么不该写-->
+<!DOCTYPE beans [
+    <!ELEMENT beans (bean*)>
+    <!ELEMENT bean (property*)>
+    <!ELEMENT property (#PCDATA)>
+
+    <!ATTLIST bean id ID #REQUIRED>
+    <!ATTLIST bean class CDATA #IMPLIED>
+
+    <!ATTLIST property name CDATA #IMPLIED>
+    <!ATTLIST property ref IDREF #IMPLIED>
+]>
+
+<beans>
+    <bean id="userBasicDAO" class="com.alex.qqzone.dao.impl.UserBasicDAOImpl"></bean>
+    <bean id="topicDAO" class="com.alex.qqzone.dao.impl.TopicDAOImpl"></bean>
+
+    <bean id="userBasicService" class="com.alex.qqzone.service.impl.UserBasicServiceImpl">
+        <property name="userBasicDAO" ref="userBasicDAO"></property>
+    </bean>
+
+    <bean id="topicService" class="com.alex.qqzone.service.impl.TopicServiceImpl">
+        <property name="topicDAO" ref="topicDAO"></property>
+    </bean>
+
+    <bean id="user" class="com.alex.qqzone.controller.UserController">
+        <property name="userBasicService" ref="userBasicService"></property>
+        <property name="topicService" ref="topicService"></property>
+    </bean>
+
+</beans>
+
+
+<!--
+    1. 概念 
+    HTML:超文本标记语言
+    XML：可扩展标价语言
+
+    HTML是XML的一个子集
+
+    2. XML包含3个部分
+    1）XML声明：而且声明这一行代码必须在XML文件的第一行
+    2）DTD 文档类型定义
+    3）XML正文
+ -->
