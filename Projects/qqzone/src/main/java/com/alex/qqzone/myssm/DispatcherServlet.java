@@ -99,7 +99,7 @@ public class DispatcherServlet extends ViewBaseServlet{
                     else{
                         //3.视图处理
                         String methodReturnStr = (String)returnObj;
-                        if(methodReturnStr.startsWith("rediect:")){ //比如 redirect:fruit.do
+                        if(methodReturnStr.startsWith("redirect:")){ //比如 redirect:fruit.do
                             String redirectStr = methodReturnStr.substring("redirect:".length());
                             response.sendRedirect(redirectStr);
                         }

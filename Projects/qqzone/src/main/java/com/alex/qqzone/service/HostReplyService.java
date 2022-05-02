@@ -1,8 +1,8 @@
-package com.alex.qqzone.dao;
+package com.alex.qqzone.service;
 
 import com.alex.qqzone.pojo.HostReply;
 
-public interface HostReplyDAO {
+public interface HostReplyService {
 
     HostReply getHostReplyByReplyId(Integer replyId);
 }

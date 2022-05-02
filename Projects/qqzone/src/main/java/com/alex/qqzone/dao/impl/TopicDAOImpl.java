@@ -29,8 +29,8 @@ public class TopicDAOImpl extends BaseDAO<Topic> implements TopicDAO {
 
     @Override
     public Topic getTopic(Integer id) {
-        // TODO Auto-generated method stub
-        return null;
+        String sql = "select * from t_topic where id = ?";
+        return super.load(sql, id);
     }
     
 }

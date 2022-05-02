@@ -16,6 +16,8 @@
 <beans>
     <bean id="userBasicDAO" class="com.alex.qqzone.dao.impl.UserBasicDAOImpl"></bean>
     <bean id="topicDAO" class="com.alex.qqzone.dao.impl.TopicDAOImpl"></bean>
+    <bean id="replyDAO" class="com.alex.qqzone.dao.impl.ReplyDAOImpl"></bean>
+    <bean id="hostReplyDAO" class="com.alex.qqzone.dao.impl.HostReplyDAOImpl"></bean>
 
     <bean id="userBasicService" class="com.alex.qqzone.service.impl.UserBasicServiceImpl">
         <property name="userBasicDAO" ref="userBasicDAO"></property>
@@ -23,11 +25,33 @@
 
     <bean id="topicService" class="com.alex.qqzone.service.impl.TopicServiceImpl">
         <property name="topicDAO" ref="topicDAO"></property>
+        <property name="replyService" ref="replyService"></property>
+        <property name="userBasicService" ref="userBasicService"></property>
+    </bean>
+
+    <bean id="replyService" class="com.alex.qqzone.service.impl.ReplyServiceImpl">
+        <property name="replyDAO" ref="replyDAO"></property>
+        <property name="hostReplyService" ref="hostReplyService"></property>
+        <property name="userBasicService" ref="userBasicService"></property>
+    </bean>
+
+    <bean id="hostReplyService" class="com.alex.qqzone.service.impl.HostReplyServiceImpl">
+        <property name="hostReplyDAO" ref="hostReplyDAO"></property>
     </bean>
 
     <bean id="user" class="com.alex.qqzone.controller.UserController">
         <property name="userBasicService" ref="userBasicService"></property>
         <property name="topicService" ref="topicService"></property>
+    </bean>
+
+    <bean id="page" class="com.alex.qqzone.myssm.PageController"></bean>
+
+    <bean id="topic" class="com.alex.qqzone.controller.TopicController">
+        <property name="topicService" ref="topicService"></property>
+    </bean>
+
+    <bean id="reply" class="com.alex.qqzone.controller.ReplyController">
+        <property name="replyService" ref="replyService"></property>
     </bean>
 
 </beans>

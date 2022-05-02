@@ -19,4 +19,10 @@ public class UserBasicDAOImpl extends BaseDAO<UserBasic> implements UserBasicDAO
         String sql = "SELECT * FROM  t_user_basic WHERE id IN (SELECT fid FROM t_friend WHERE uid = ?)";
         return super.executeQuery(sql, userBasic.getId());
     }
+
+    @Override
+    public UserBasic getUserBasicById(Integer id) {
+        String sql = "select * from t_user_basic where id = ?";
+        return super.load(sql, id);
+    }
 }
