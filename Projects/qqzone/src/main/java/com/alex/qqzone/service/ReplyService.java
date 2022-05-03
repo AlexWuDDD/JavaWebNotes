@@ -3,6 +3,7 @@ package com.alex.qqzone.service;
 import java.util.List;
 
 import com.alex.qqzone.pojo.Reply;
+import com.alex.qqzone.pojo.Topic;
 
 public interface ReplyService {
     
@@ -11,4 +12,9 @@ public interface ReplyService {
 
     //添加回复
     void addReply(Reply reply);
+
+    void delReply(Integer replyId);
+
+    //删除指定的日志关联的所有回复
+    void delReplyList(Topic topic);
 }

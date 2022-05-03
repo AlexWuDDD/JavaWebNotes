@@ -27,4 +27,10 @@ public class ReplyDAOImpl extends BaseDAO<Reply> implements ReplyDAO {
         super.executeUpdate(sql, id);
     }
 
+    @Override
+    public Reply getReplyById(Integer id) {
+        String sql = "select * from t_reply where id = ?";
+        return super.load(sql, id);
+    }
+
 }

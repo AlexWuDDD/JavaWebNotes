@@ -11,5 +11,11 @@ public class HostReplyDAOImpl extends BaseDAO<HostReply> implements HostReplyDAO
         String sql = "select * from t_host_reply where reply = ?";
         return super.load(sql, replyId);
     }
+
+    @Override
+    public void delHostReply(Integer id) {
+        String sql = "delete from t_host_reply where id = ?";
+        super.executeUpdate(sql, id);
+    }
     
 }

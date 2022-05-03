@@ -23,7 +23,8 @@ public class TopicDAOImpl extends BaseDAO<Topic> implements TopicDAO {
 
     @Override
     public void delTopic(Topic topic) {
-        // TODO Auto-generated method stub
+       String sql = "delete from t_topic where id = ?";
+       super.executeUpdate(sql, topic.getId());
         
     }
 

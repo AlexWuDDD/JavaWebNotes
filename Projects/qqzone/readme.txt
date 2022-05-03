@@ -34,3 +34,40 @@
 
 5. 页面没有样式，同时数据也不显示，原因是：我们是直接请求的静态页面资源，那么并没有执行super.processTemplate(), 也就是thymeleaf没有起作用
    (之前的表单也是这个原因)
+
+6. 删除回复
+    1）如果回复有关联的主人回复，需要先删除主人回复
+    2）删除回复
+
+7. 删除日志
+    1）删除日志，首先需要考虑是否有关联的回复
+    2）删除回复，首先需要考虑是否有关联的主人回复
+    3）另外，如果不是自己的空间，则不能删除日志
+
+8. 目前我们进行javaweb项目开发的“套路”是这样的：
+    1）拷贝myssm包
+    2）新建配置文件applicationContext.xml
+    3）在web.xml文件中配置
+        <context-param>
+        <param-name>view-prefix</param-name>
+        <param-value>/</param-value>
+        </context-param>
+        <context-param>
+            <param-name>view-suffix</param-name>
+            <param-value>.html</param-value>
+        </context-param>
+
+        <context-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>applicationContext.xml</param-value>
+        </context-param>
+    4）开发具体的业务模块
+        - html页面
+        - POJO类
+        - DAO接口和实现类
+        - Service接口和实现类
+        - Controller控制器组件
+
+        - 如果html页面有thymeleaf表达式，一定不能直接访问，必须经过PageController
+        - 在applicationContext.xml中配置DAO、Service、Controller，以及三者之间的依赖关系
+        - DAO实现类中，继承BaseDAO, 然后实现具体的接口
