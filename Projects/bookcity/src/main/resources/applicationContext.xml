@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 文档类型定义 什么改写 什么不该写-->
+<!DOCTYPE beans [
+    <!ELEMENT beans (bean*)>
+    <!ELEMENT bean (property*)>
+    <!ELEMENT property (#PCDATA)>
+
+    <!ATTLIST bean id ID #REQUIRED>
+    <!ATTLIST bean class CDATA #IMPLIED>
+
+    <!ATTLIST property name CDATA #IMPLIED>
+    <!ATTLIST property ref IDREF #IMPLIED>
+]>
+
+<beans>
+    <!-- DAO -->
+    <bean id="userDAO" class="com.alex.bookcity.dao.impl.UserDAOImpl"></bean>
+
+    <!-- Service -->
+    <bean id="userService" class="com.alex.bookcity.service.impl.UserServiceImpl">
+        <property name="userDAO" ref="userDAO"></property>
+    </bean>
+
+    <!-- Controller -->
+    <bean id="user" class="com.alex.bookcity.controllers.UserController">
+        <property name="userService" ref="userService"></property>
+    </bean>
+
+    <bean id="page" class="com.alex.bookcity.myssm.PageController"></bean>
+</beans>
+
+
+<!--
+    1. 概念 
+    HTML:超文本标记语言
+    XML：可扩展标价语言
+
+    HTML是XML的一个子集
+
+    2. XML包含3个部分
+    1）XML声明：而且声明这一行代码必须在XML文件的第一行
+    2）DTD 文档类型定义
+    3）XML正文
+ -->
