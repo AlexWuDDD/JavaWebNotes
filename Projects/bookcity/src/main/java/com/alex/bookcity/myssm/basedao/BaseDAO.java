@@ -106,6 +106,7 @@ public abstract class BaseDAO<T> {
     private static boolean isNotMyType(String typename){
         return "java.lang.Integer".equals(typename) 
             || "java.lang.String".equals(typename)
+            || "java.lang.Double".equals(typename)
             || "java.util.Date".equals(typename)
             || "java.sql.Date".equals(typename)
             || "java.time.LocalDateTime".equals(typename);

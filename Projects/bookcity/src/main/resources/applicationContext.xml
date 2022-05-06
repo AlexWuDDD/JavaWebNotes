@@ -16,15 +16,24 @@
 <beans>
     <!-- DAO -->
     <bean id="userDAO" class="com.alex.bookcity.dao.impl.UserDAOImpl"></bean>
+    <bean id="bookDAO" class="com.alex.bookcity.dao.impl.BookDAOImpl"></bean>
 
     <!-- Service -->
     <bean id="userService" class="com.alex.bookcity.service.impl.UserServiceImpl">
         <property name="userDAO" ref="userDAO"></property>
     </bean>
 
+    <bean id="bookService" class="com.alex.bookcity.service.impl.BookServiceImpl">
+        <property name="bookDAO" ref="bookDAO"></property>
+    </bean>
+
     <!-- Controller -->
     <bean id="user" class="com.alex.bookcity.controllers.UserController">
         <property name="userService" ref="userService"></property>
+    </bean>
+
+    <bean id="book" class="com.alex.bookcity.controllers.BookController">
+        <property name="bookService" ref="bookService"></property>
     </bean>
 
     <bean id="page" class="com.alex.bookcity.myssm.PageController"></bean>

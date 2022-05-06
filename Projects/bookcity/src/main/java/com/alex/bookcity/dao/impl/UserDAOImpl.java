@@ -8,7 +8,7 @@ public class UserDAOImpl extends BaseDAO<User> implements UserDAO {
 
     @Override
     public User getUser(String uname, String pwd) {
-        String sql = "select * from user where uname like ? and pwd like ?";
+        String sql = "select * from t_user where uname like ? and pwd like ?";
         return super.load(sql, uname, pwd);
     }
     

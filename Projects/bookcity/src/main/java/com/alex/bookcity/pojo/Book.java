@@ -7,8 +7,8 @@ public class Book {
     private Double price;
     private Integer salCount;
     private Integer bookCount;
-    private String boolImg;
-    private Integer bookStatus = 0;
+    private String bookImg;
+    private Integer bookStatus = 0; //0: 正常 ；-1：无效
 
     public Book(){}
 
@@ -64,12 +64,12 @@ public class Book {
         this.bookCount = bookCount;
     }
 
-    public String getBoolImg() {
-        return this.boolImg;
+    public String getBookImg() {
+        return this.bookImg;
     }
 
-    public void setBoolImg(String boolImg) {
-        this.boolImg = boolImg;
+    public void setBookImg(String bookImg) {
+        this.bookImg = bookImg;
     }
 
     public Integer getBookStatus() {
