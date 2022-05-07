@@ -30,6 +30,7 @@
 
     <bean id="cartItemService" class="com.alex.bookcity.service.impl.CartItemServiceImpl">
         <property name="cartItemDAO" ref="cartItemDAO"></property>
+        <property name="bookService" ref="bookService"></property>
     </bean>
 
     <!-- Controller -->

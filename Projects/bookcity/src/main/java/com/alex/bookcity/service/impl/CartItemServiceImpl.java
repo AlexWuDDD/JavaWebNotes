@@ -8,11 +8,13 @@ import com.alex.bookcity.dao.CartItemDAO;
 import com.alex.bookcity.pojo.Cart;
 import com.alex.bookcity.pojo.CartItem;
 import com.alex.bookcity.pojo.User;
+import com.alex.bookcity.service.BookService;
 import com.alex.bookcity.service.CartItemService;
 
 public class CartItemServiceImpl implements CartItemService{
 
     private CartItemDAO cartItemDAO = null;
+    private BookService bookService = null;
 
     @Override
     public void addCartItem(CartItem cartItem) {
@@ -45,7 +47,7 @@ public class CartItemServiceImpl implements CartItemService{
 
     @Override
     public Cart getCart(User user) {
-        List<CartItem> cartItemList = cartItemDAO.getCartItemList(user);
+        List<CartItem> cartItemList = getCartItemList(user);
         Map<Integer, CartItem> cartItemMap = new HashMap<>();
         for(CartItem cartItem : cartItemList){
             cartItemMap.put(cartItem.getBook().getId(), cartItem);
@@ -53,6 +55,15 @@ public class CartItemServiceImpl implements CartItemService{
         Cart cart = new Cart();
         cart.setCartItemMap(cartItemMap);
         return cart;
+    }
+
+    @Override
+    public List<CartItem> getCartItemList(User user) {
+        List<CartItem> cartItemList = cartItemDAO.getCartItemList(user);
+        for(CartItem cartItem : cartItemList){
+            cartItem.setBook(bookService.getBook(cartItem.getBook().getId()));
+        }
+        return cartItemList;
     }
     
 }

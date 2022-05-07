@@ -7,6 +7,7 @@ public class Cart {
     private Map<Integer, CartItem> cartItemMap; //这个Map集合中的key是Book的id
     private Double totalMoney;
     private Integer totalCount;
+    private Integer totalBookCount;
 
     public Cart(){}
 
@@ -24,7 +25,7 @@ public class Cart {
             Set<Map.Entry<Integer,CartItem>> entires = cartItemMap.entrySet();
             for(Map.Entry<Integer, CartItem> cartItemEntry: entires){
                 CartItem cartItem =  cartItemEntry.getValue();
-                this.totalMoney = cartItem.getBook().getPrice() * cartItem.getBuyCount();
+                this.totalMoney += cartItem.getBook().getPrice() * cartItem.getBuyCount();
             }
         }
         return this.totalMoney;
@@ -37,6 +38,17 @@ public class Cart {
         }
 
         return this.totalCount;
+    }
+
+    public Integer getTotalBookCount(){
+        this.totalBookCount = 0;
+        if(cartItemMap != null && cartItemMap.size()>0){
+            for(CartItem cartItem : cartItemMap.values()){
+                this.totalBookCount += cartItem.getBuyCount();
+            }
+        }
+
+        return this.totalBookCount;
     }
 
 }
