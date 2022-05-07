@@ -3,8 +3,6 @@ package com.alex.bookcity.pojo;
 public class CartItem {
     private Integer id;
     private Book book;
-    private String bookName;
-    private Double price;
     private Integer buyCount;
     private User USER;
 
@@ -28,22 +26,6 @@ public class CartItem {
 
     public void setBook(Book book) {
         this.book = book;
-    }
-
-    public String getBookName() {
-        return this.bookName;
-    }
-
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
-    }
-
-    public Double getPrice() {
-        return this.price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 
     public Integer getBuyCount() {

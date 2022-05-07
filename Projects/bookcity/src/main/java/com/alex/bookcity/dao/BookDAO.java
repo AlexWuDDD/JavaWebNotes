@@ -6,4 +6,5 @@ import com.alex.bookcity.pojo.Book;
 
 public interface BookDAO {
     List<Book> getBookList();
+    Book getBook(Integer id);
 }
