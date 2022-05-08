@@ -1,5 +1,6 @@
 package com.alex.bookcity.pojo;
 
+import java.math.BigDecimal;
 import java.util.Map;
 import java.util.Set;
 
@@ -20,14 +21,17 @@ public class Cart {
     }
 
     public Double getTotalMoney() {
-        this.totalMoney = 0.0;
+        BigDecimal total = new BigDecimal(0.0);
         if(cartItemMap != null && cartItemMap.size() > 0){
             Set<Map.Entry<Integer,CartItem>> entires = cartItemMap.entrySet();
             for(Map.Entry<Integer, CartItem> cartItemEntry: entires){
                 CartItem cartItem =  cartItemEntry.getValue();
-                this.totalMoney += cartItem.getBook().getPrice() * cartItem.getBuyCount();
+                BigDecimal price = new BigDecimal(""+cartItem.getBook().getPrice());
+                BigDecimal count = new BigDecimal(""+cartItem.getBuyCount());
+                total = total.add(price.multiply(count));
             }
         }
+        this.totalMoney = total.doubleValue();
         return this.totalMoney;
     }
 

@@ -25,13 +25,18 @@ public class CartController {
         User user = (User) session.getAttribute("currUser");
         //将指定的图书添加到当前用户的购物车中
         CartItem cartItem = new CartItem();
-        cartItem.setBook(new Book(user.getId()));
+        cartItem.setBook(new Book(bookId));
         cartItem.setBuyCount(1);
         cartItem.setUSER(user);
 
 
         cartItemService.addOrUpdateCartItem(cartItem, user.getCart());
 
+        return "redirect:cart.do";
+    }
+
+    public String editCart(Integer cartItemId, Integer buyCount){
+        cartItemService.updateCartItem(new CartItem(cartItemId, buyCount));
         return "redirect:cart.do";
     }
 }

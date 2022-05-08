@@ -1,15 +1,24 @@
 package com.alex.bookcity.pojo;
 
+import java.math.BigDecimal;
+
 public class CartItem {
     private Integer id;
     private Book book;
     private Integer buyCount;
     private User USER;
 
+    private Double xj;
+
     public CartItem(){}
 
     public CartItem(Integer id){
         this.id = id;
+    }
+
+    public CartItem(Integer id, Integer buyCount){
+        this.id = id;
+        this.buyCount = buyCount;
     }
 
     public Integer getId() {
@@ -44,6 +53,12 @@ public class CartItem {
         this.USER = USER;
     }
 
-
+    public Double getxj(){
+        BigDecimal bigDecimalPrice = new BigDecimal(""+this.book.getPrice());
+        BigDecimal bigDecimalBuyCount = new BigDecimal(""+this.buyCount);
+        BigDecimal bigDecimalxj = bigDecimalPrice.multiply(bigDecimalBuyCount);
+        xj = bigDecimalxj.doubleValue();
+        return xj;
+    }
 
 }
