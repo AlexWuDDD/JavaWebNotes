@@ -3,21 +3,30 @@ package com.alex.bookcity.pojo;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class OrderBean {
+public class Order {
     private Integer id;
     private String orderNo;
     private LocalDateTime orderDate;
     private Double orderMoney;
-    private Integer orderCount;
     private Integer orderStatus;
-    private User USER;
+    private User orderUser;
 
     private List<OrderItem> orderItemList;
 
-    public OrderBean() {
+    private Integer totalBookCount;
+
+    public Integer getTotalBookCount() {
+        return this.totalBookCount;
     }
 
-    public OrderBean(Integer id) {
+    public void setTotalBookCount(Integer totalBookCount) {
+        this.totalBookCount = totalBookCount;
+    }
+
+    public Order() {
+    }
+
+    public Order(Integer id) {
         this.id = id;
     }
 
@@ -54,13 +63,6 @@ public class OrderBean {
         this.orderMoney = orderMoney;
     }
 
-    public Integer getOrderCount() {
-        return this.orderCount;
-    }
-
-    public void setOrderCount(Integer orderCount) {
-        this.orderCount = orderCount;
-    }
 
     public Integer getOrderStatus() {
         return this.orderStatus;
@@ -70,12 +72,12 @@ public class OrderBean {
         this.orderStatus = orderStatus;
     }
 
-    public User getUSER() {
-        return this.USER;
+    public User getOrderUser() {
+        return this.orderUser;
     }
 
-    public void setUSER(User USER) {
-        this.USER = USER;
+    public void setOrderUser(User ordeUser) {
+        this.orderUser = ordeUser;
     }
 
     public List<OrderItem> getOrderItemList() {

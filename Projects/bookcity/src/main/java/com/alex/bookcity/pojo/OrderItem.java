@@ -4,7 +4,7 @@ public class OrderItem {
     private Integer id;
     private Book book;
     private Integer buyCount;
-    private OrderBean orderBean;
+    private Order orderBean;
 
     public OrderItem() {}
 
@@ -36,12 +36,12 @@ public class OrderItem {
         this.buyCount = buyCount;
     }
 
-    public OrderBean getOrderBean() {
+    public Order getOrder() {
         return this.orderBean;
     }
 
-    public void setOrderBean(OrderBean orderBean) {
-        this.orderBean = orderBean;
+    public void setOrder(Order order) {
+        this.orderBean= order;
     }
 
 }

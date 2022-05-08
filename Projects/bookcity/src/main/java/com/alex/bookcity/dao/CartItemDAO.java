@@ -12,4 +12,6 @@ public interface CartItemDAO {
     void updateCartItem(CartItem cartItem);
     //获取特定用户的所有购物车项
     List<CartItem> getCartItemList(User user);
+    //删除指定的购物车项
+    void delCartItem(CartItem cartItem);
 }

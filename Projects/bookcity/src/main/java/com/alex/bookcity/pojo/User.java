@@ -1,5 +1,7 @@
 package com.alex.bookcity.pojo;
 
+import java.util.List;
+
 public class User {
     private Integer id;
     private String uname;
@@ -9,6 +11,15 @@ public class User {
 
 
     private Cart cart;
+    private List<Order> orderList;
+
+    public List<Order> getOrderList() {
+        return this.orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
 
     public User(){}
 

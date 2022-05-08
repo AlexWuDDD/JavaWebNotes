@@ -6,13 +6,11 @@ import com.alex.bookcity.pojo.Book;
 import com.alex.bookcity.pojo.Cart;
 import com.alex.bookcity.pojo.CartItem;
 import com.alex.bookcity.pojo.User;
-import com.alex.bookcity.service.BookService;
 import com.alex.bookcity.service.CartItemService;
 
 public class CartController {
 
     private CartItemService cartItemService = null;
-    private BookService bookService = null;
 
     //加载当前用户的购物车信息
     public String index(HttpSession session){

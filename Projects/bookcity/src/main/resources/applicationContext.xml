@@ -18,6 +18,8 @@
     <bean id="userDAO" class="com.alex.bookcity.dao.impl.UserDAOImpl"></bean>
     <bean id="bookDAO" class="com.alex.bookcity.dao.impl.BookDAOImpl"></bean>
     <bean id="cartItemDAO" class="com.alex.bookcity.dao.impl.CartItemDAOImpl"></bean>
+    <bean id="orderDAO" class="com.alex.bookcity.dao.impl.OrderDAOImpl"></bean>
+    <bean id="orderItemDAO" class="com.alex.bookcity.dao.impl.OrderItemDAOImpl"></bean>
 
     <!-- Service -->
     <bean id="userService" class="com.alex.bookcity.service.impl.UserServiceImpl">
@@ -33,6 +35,12 @@
         <property name="bookService" ref="bookService"></property>
     </bean>
 
+    <bean id="orderService" class="com.alex.bookcity.service.impl.OrderServiceImpl">
+        <property name="orderDAO" ref="orderDAO"></property>
+        <property name="orderItemDAO" ref="orderItemDAO"></property>
+        <property name="cartItemService" ref="cartItemService"></property>
+    </bean>
+
     <!-- Controller -->
     <bean id="user" class="com.alex.bookcity.controllers.UserController">
         <property name="userService" ref="userService"></property>
@@ -45,7 +53,10 @@
 
     <bean id="cart" class="com.alex.bookcity.controllers.CartController">
         <property name="cartItemService" ref="cartItemService"></property>
-        <property name="bookService" ref="bookService"></property>
+    </bean>
+
+    <bean id="order" class="com.alex.bookcity.controllers.OrderController">
+        <property name="orderService" ref="orderService"></property>
     </bean>
 
     <bean id="page" class="com.alex.bookcity.myssm.PageController"></bean>

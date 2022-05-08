@@ -65,5 +65,10 @@ public class CartItemServiceImpl implements CartItemService{
         }
         return cartItemList;
     }
+
+    @Override
+    public void delCartItem(CartItem cartItem) {
+        cartItemDAO.delCartItem(cartItem);
+    }
     
 }

@@ -50,7 +50,6 @@ public abstract class BaseDAO<T> {
         }
     }
 
-    //执行更新，返回影响行数
     public int executeUpdate(String sql , Object... params){
         boolean insertFlag = false ;
         insertFlag = sql.trim().toUpperCase().startsWith("INSERT");
