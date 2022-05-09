@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式 - 字符集合</title>
+    <script language="JavaScript">
+        //let reg = /[abcfffvv]/gim;
+        //let reg = /[^abc]/gim; //目标字符集取反
+        let reg = /[a-z]/gim; 
+        let str = "a>b_c|d\nf?g123";
+        let ret = str.replace(reg, "A");
+        console.log(ret);
+        document.write(ret);
+        let flag = reg.test(str); //只要有一个符合就行
+        console.log(flag);
+        document.write('\n')
+        document.write(flag);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

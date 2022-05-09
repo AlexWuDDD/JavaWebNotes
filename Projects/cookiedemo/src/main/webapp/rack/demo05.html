@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式 - 元字符</title>
+    <script language="JavaScript">
+        //let = reg /./gim; // 匹配任意字符
+        //let reg = /\w/gim; //字母 下划线 数字
+        //let reg = /\W/gim; //匹配任何非单词字符 除字母 数字 下划线之外的所有
+        //let reg = /\s/gim; //匹配任何空白字符 例如 空格 \n\f\r\t\v
+        /*
+        \n：换行（光标到下行行首）
+        \r：回车（光标到本行行首）
+        \f：换页
+        \t：水平跳格（水平制表）
+        \v：垂直跳格（垂直制表）
+        */
+        //let reg = /\S/gim; //匹配任何非空白字符
+        //let reg = /\d/gim; //匹配任何数字
+        //let reg = /\D/gim; //匹配非任何数字
+        //let reg = /\b/gim; //匹配单词的开始或结束，也就是在单词的开始和结束的地方
+        //let reg = /^/gim; //匹配字符串的开始
+        let reg = /$/gim; //匹配字符串的结束
+        let str = "a>b_c|d\nf?g123";
+        let ret = str.replace(reg, "A");
+        console.log(ret);
+        document.write(ret);
+        let flag = reg.test(str); //只要有一个符合就行
+        console.log(flag);
+        document.write('\n')
+        document.write(flag);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
