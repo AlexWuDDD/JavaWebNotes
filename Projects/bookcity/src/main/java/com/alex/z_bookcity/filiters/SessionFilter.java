@@ -16,12 +16,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(urlPatterns = { "*.do", "*.html"},
-    initParams = {
-        @WebInitParam(name = "bypass", 
-            value = "/bookcity/page.do?operate=page&page=/user/login,/bookcity/user.do?null")
-    }
-)
+// @WebFilter(urlPatterns = { "*.do", "*.html"},
+//     initParams = {
+//         @WebInitParam(name = "bypass", 
+//             value = "/bookcity/page.do?operate=page&page=/user/login,/bookcity/user.do?null")
+//     }
+// )
 public class SessionFilter implements Filter{
 
     private List<String> bypassList = null;

@@ -1,5 +1,9 @@
 package com.alex.bookcity.controllers;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.alex.bookcity.pojo.Cart;
@@ -24,6 +28,32 @@ public class UserController {
             session.setAttribute("currUser", user);
             return "redirect:book.do";
         }
+        return "user/login";
+    }
+
+    public String regist(String uname, String pwd, String email, String verifyCode, HttpSession session, HttpServletResponse response) throws IOException{
+
+        Object obj = session.getAttribute("KAPTCHA_SESSION_KEY");
+        if(obj == null || !verifyCode.equals(obj)){
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("text/html;charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            out.println("<script language='javascript'>alert('验证码不正确');window.location.href='page.do?operate=page&page=/user/regist'</script>");
+            //return "user/regist";
+            return null;
+        }
+        else{
+            if(verifyCode.equals(obj)){
+                User user = new User();
+                user.setUname(uname);
+                user.setPwd(pwd);
+                user.setEmail(email);
+                user.setRole(0);
+
+                userService.addUser(user);
+            }
+        }
+
         return "user/login";
     }
 }
