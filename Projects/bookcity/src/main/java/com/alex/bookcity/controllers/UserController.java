@@ -56,4 +56,16 @@ public class UserController {
 
         return "user/login";
     }
+
+    public String ckUname(String uname){
+        User user = userService.getUser(uname);
+        if(user != null){
+            //用户名已经被占用，不可以注册
+            return "json:{'uanme': '1'}";
+        }
+        else{
+            //用户可以注册
+            return "json:{'uanme': '0'}";
+        }
+    }
 }

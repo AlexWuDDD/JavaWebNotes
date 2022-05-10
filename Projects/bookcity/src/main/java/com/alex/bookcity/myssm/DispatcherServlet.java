@@ -1,6 +1,7 @@
 package com.alex.bookcity.myssm;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 
@@ -102,6 +103,12 @@ public class DispatcherServlet extends ViewBaseServlet{
                         if(methodReturnStr.startsWith("redirect:")){ //比如 redirect:fruit.do
                             String redirectStr = methodReturnStr.substring("redirect:".length());
                             response.sendRedirect(redirectStr);
+                        }
+                        else if(methodReturnStr.startsWith("json:")){
+                            String jsonStr = methodReturnStr.substring("json:".length());
+                            PrintWriter out = response.getWriter();
+                            out.print(jsonStr);
+                            out.flush();
                         }
                         else{
                             super.processTemplate(methodReturnStr, request, response); //edit
