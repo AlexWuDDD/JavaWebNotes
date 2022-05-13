@@ -105,6 +105,8 @@ public class DispatcherServlet extends ViewBaseServlet{
                             response.sendRedirect(redirectStr);
                         }
                         else if(methodReturnStr.startsWith("json:")){
+                            response.setCharacterEncoding("utf-8");
+                            response.setContentType("application/json;charset=utf-8");
                             String jsonStr = methodReturnStr.substring("json:".length());
                             PrintWriter out = response.getWriter();
                             out.print(jsonStr);

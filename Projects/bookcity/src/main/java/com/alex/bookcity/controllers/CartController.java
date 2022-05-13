@@ -2,11 +2,14 @@ package com.alex.bookcity.controllers;
 
 import javax.servlet.http.HttpSession;
 
+import com.alex.bookcity.myssm.utils.MyGson;
 import com.alex.bookcity.pojo.Book;
 import com.alex.bookcity.pojo.Cart;
 import com.alex.bookcity.pojo.CartItem;
 import com.alex.bookcity.pojo.User;
 import com.alex.bookcity.service.CartItemService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class CartController {
 
@@ -37,6 +40,16 @@ public class CartController {
 
     public String editCart(Integer cartItemId, Integer buyCount){
         cartItemService.updateCartItem(new CartItem(cartItemId, buyCount));
-        return "redirect:cart.do";
+        return null;
+    }
+
+    public String cartInfo(HttpSession session){
+        User user = (User)session.getAttribute("currUser");
+        Cart cart = cartItemService.getCart(user);
+
+        Gson myGson = MyGson.getGson();
+
+        String cartJson =  myGson.toJson(cart);
+        return "json:"+ cartJson;
     }
 }

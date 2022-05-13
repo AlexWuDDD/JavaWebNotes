@@ -54,6 +54,9 @@ public class CartItemServiceImpl implements CartItemService{
         }
         Cart cart = new Cart();
         cart.setCartItemMap(cartItemMap);
+        cart.getTotalCount();
+        cart.getTotalBookCount();
+        cart.getTotalMoney();
         return cart;
     }
 
@@ -62,6 +65,7 @@ public class CartItemServiceImpl implements CartItemService{
         List<CartItem> cartItemList = cartItemDAO.getCartItemList(user);
         for(CartItem cartItem : cartItemList){
             cartItem.setBook(bookService.getBook(cartItem.getBook().getId()));
+            cartItem.getxj();
         }
         return cartItemList;
     }
